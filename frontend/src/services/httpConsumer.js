@@ -1,43 +1,27 @@
-const url = "http://localhost:8080/tasks/";
+const url = "http://localhost:8080/";
 
-export const getTasks = (onSuccess,onFinish) =>
+export const getFiguritas = (onSuccess,onFinish) =>
     fetch(url)
     .then(response => response.json())
     .then(onSuccess)
     .finally(onFinish);
 
-export const getTask = (id,onSuccess,onFinish) =>{
-  fetch(`${url}?id=${id}`)
+export const getPaises = (onSuccess,onFinish) =>{
+  fetch(`${url}paises`)
     .then(response => response.json())
     .then(onSuccess)
     .finally(onFinish);
 }
-
-export const addTask = (task,onSuccess,onFinish) => 
-fetch(url,{
-    method: 'POST',
-    headers:{ 
-        'Accept': 'application/json',
-        'Content-Type':'application/json'
-      },
-    body: JSON.stringify(task),
-  }).then((data) => data.json())
-  .then(onSuccess)
-  .finally(onFinish)
-
-export const httpEditTask = (id,task,onSuccess,onFinish) => 
-  fetch(`${url}/${id}`,{
+export const httpEditFigurita = (id,figurita,onSuccess,onFinish) => 
+  fetch(`${url}${id}`,{
             method: 'PUT',
             headers:{ 
                 'Accept': 'application/json',
                 'Content-Type':'application/json'
               },
-            body: JSON.stringify(task),
+            body: JSON.stringify(figurita),
           }).then((data) => data.json())
           .then(onSuccess)
           .finally(onFinish)
 
-export const httpDeleteTask = (id) =>
-fetch(`${url}/${id}`,{
-        method: 'DELETE',
-    }).then((data) => data.json())
+

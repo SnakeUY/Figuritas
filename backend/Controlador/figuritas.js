@@ -7,7 +7,6 @@ const corsOptions = {
   optionSuccessStatus: 200,
 };
 
-
 const { request } = require("express");
 
 const db = require("../Infraestructura/pool");
@@ -36,8 +35,10 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/paises/", async (req, res, next) => {
-  const results = await sequelize.query("SELECT distinct pais FROM Figurita",{type:QueryTypes.SELECT});
-  console.log(JSON.stringify(results))
+  const results = await sequelize.query("SELECT distinct pais FROM Figurita", {
+    type: QueryTypes.SELECT,
+  });
+  console.log(JSON.stringify(results));
   res.send(results);
   next();
 });

@@ -7,7 +7,6 @@ const express = require('express');
 const figuritaRoutes = require('./Controlador/figuritas');
 const app = express();
 app.use(express.json());
-
 app.use('/',figuritaRoutes);
 app.listen(8080,()=>{
     console.log('I\'m working')

@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
+import Album from './Componentes/index'
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         </nav>
         <BrowserRouter>
         <Routes>
-          <Route path='/' element=''/>
+          <Route path='/' element={<Album/>}/>
         </Routes>
         </BrowserRouter>
   
