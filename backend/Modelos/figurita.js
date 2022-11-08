@@ -17,7 +17,9 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.BIGINT,
       allowNull: false,
       defaultValue :'0'
-    },
-  });
+    }
+    },{
+        tableName : "figurita"
+    });
   return Figurita;
 };

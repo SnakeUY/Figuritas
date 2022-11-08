@@ -9,5 +9,5 @@ const sequelize = new Sequelize(process.env.PGDATABASE, process.env.PGUSER,proce
 const db = {};
 db.Sequelize = Sequelize
 db.sequelize = sequelize
-db.Figurita = require('../Modelos/figurita')(sequelize,Sequelize)
+db.Modelo = require('../Modelos/figurita')(sequelize,Sequelize)
 module.exports = db
