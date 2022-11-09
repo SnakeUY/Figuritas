@@ -28,7 +28,7 @@ const Album = ({ props }) => {
         isLoading ?
         <p>Cargando</p>
         :(
-      <Componente categorias={categoria} figuritas={figurita}/>
+      <Componente categorias={categoria}/>
       )}
     </>
   );

@@ -4,17 +4,15 @@ import Figurita from "./figurita";
 import { Figurita as ModeloFigurita } from "../Modelo/figurita";
 import { useEffect } from "react";
 import { useState } from "react";
-const Componente = ({ categorias, figuritas }) => {
+const Componente = ({categorias}) => {
   return (
-  
-    (categorias) ?
-      <ul>
+        <>
         {categorias.map((pais)=> (
           <ul> Pais {'->'} {pais.pais}
           <Pais pais={pais}></Pais>
           </ul>
         ))}
-      </ul>:<h1>No hay informacion de categorias</h1>
+        </>
    );
 }
 
@@ -34,10 +32,7 @@ const Pais = ({pais}) => {
     <li>
       <p> Cantidad de jugadores {figurita.length}</p>
       {figurita.map((figurita)=>(
-      (figurita.pais === pais.pais) ?
       <Figurita props={figurita}/>
-      
-      :<p>No hay de este pais</p>
       ))
        }
     </li>
