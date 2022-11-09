@@ -43,14 +43,16 @@ router.get("/paises/", async (req, res, next) => {
   next();
 });
 
-router.delete("/:id", async (req, res, next) => {
-  let id = req.params.id;
-  const results = await dbFigurita.destroy({
+router.get("/byPais/:pais", async (req, res, next) => {
+  let pais = req.params.pais;
+  const results = await dbFigurita.findAll(
+    {
+    attributes:['id','nombre','pais','tengo'],
     where: {
-      id: id,
-    },
+      pais: pais,
+    }
   });
-  res.send({ message: "eliminado el ID:", id });
+  res.send(results);
   next();
 });
 router.put("/:id", async (req, res, next) => {

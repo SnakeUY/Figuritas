@@ -6,11 +6,11 @@ import { getFiguritas, getPaises } from "../services/httpConsumer";
 import { Categoria as ModeloCategoria } from "../Modelo/categoria";
 import { Figurita as ModeloFigurita } from "../Modelo/figurita";
 import Figurita from "./figurita";
-import Componente from "./categorias";
-
+import {Componente} from "./categorias";
 const Album = ({ props }) => {
   const [categoria, SetCategoria] = useState([]);
   const [figurita, setFigurita] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
   const getCategoria = () =>
     getPaises(
       (data) => {
@@ -32,7 +32,14 @@ const Album = ({ props }) => {
       (data) => {
         SetCategoria(data.map(adaptModelToCountry));
       },
-      () => console.log("se termino")
+      () => setIsLoading(false)
+    );
+
+    getFiguritas(
+      (data) => {
+        setFigurita(data.map(adaptModelToFigurita));
+      },
+      () => setIsLoading(false)
     );
     /*
     getCategoria();
@@ -42,8 +49,9 @@ const Album = ({ props }) => {
     getFigurita();
     figurita.forEach((figurita) => {
       console.log(figurita);
-    }); */
+    });*/ 
   }, []);
+  /*
   const getFigurita = () =>
     getFiguritas(
       (data) => {
@@ -51,13 +59,18 @@ const Album = ({ props }) => {
       },
       () => console.log("buscando 2")
     );
-
+*/
   return (
     <>
       <div className="categorias">
         <h2>pais</h2>
       </div>
-      <Componente props={categoria} />
+      {
+        isLoading ?
+        <p>Cargando</p>
+        :(
+      <Componente categorias={categoria} figuritas={figurita}/>
+      )}
     </>
   );
 };

@@ -3,9 +3,10 @@ import React from "react";
 const Figurita = ({ props }) => {
   return (
     <>
-      <div>{props.id}</div>
-      <div>{props.nombre}</div>
-      <div>{props.tengo}</div>
+      <div>Jugador</div>
+      <div>id:{props.id}</div>
+      <div>nombre:{props.nombre}</div>
+      <div>Tengo:{props.tengo}</div>
     </>
   );
 };

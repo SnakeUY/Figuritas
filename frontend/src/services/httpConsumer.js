@@ -24,4 +24,10 @@ export const httpEditFigurita = (id,figurita,onSuccess,onFinish) =>
           .then(onSuccess)
           .finally(onFinish)
 
+export const getFiguritasByPais = (pais,onSuccess,onFinish) =>{
+  fetch(`${url}byPais/${pais}`)
+    .then(response => response.json())
+    .then(onSuccess)
+    .finally(onFinish);
+}
 
