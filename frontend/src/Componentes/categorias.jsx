@@ -16,7 +16,7 @@ const Componente = ({ categorias, figuritas }) => {
         ))}
       </ul>:<h1>No hay informacion de categorias</h1>
    );
-};
+}
 
 const Pais = ({pais}) => {
   const [figurita, setFigurita] = useState([]);
