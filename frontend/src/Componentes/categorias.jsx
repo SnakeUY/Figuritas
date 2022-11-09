@@ -4,12 +4,13 @@ import Figurita from "./figurita";
 import { Figurita as ModeloFigurita } from "../Modelo/figurita";
 import { useEffect } from "react";
 import { useState } from "react";
+
 const Componente = ({categorias}) => {
   return (
         <>
         {categorias.map((pais)=> (
-          <ul> Pais {'->'} {pais.pais}
-          <Pais pais={pais}></Pais>
+          <ul> Pais {"->"} {pais.pais}
+              <Pais pais={pais.pais}></Pais>
           </ul>
         ))}
         </>
@@ -19,15 +20,13 @@ const Componente = ({categorias}) => {
 const Pais = ({pais}) => {
   const [figurita, setFigurita] = useState([]);
 
-  const country = pais.pais
-  getFiguritasByPais(country,data => {  
-    setFigurita(data.map(adaptModelToFigurita));
-    },
-    () => console.log("Termino de cargar")
-  );
-
+  useEffect(() => {
+    getFiguritasByPais(pais,data => { setFigurita(data.map(adaptModelToFigurita));
+      }, () => console.log("Termino de cargar los jugadores")
+    );
+  }, []);
+  
   return(
-    (figurita) ?
     <>
     <li>
       <p> Cantidad de jugadores {figurita.length}</p>
@@ -36,17 +35,16 @@ const Pais = ({pais}) => {
       ))
        }
     </li>
-    <li></li>
-    <li></li>
+    <br/>
+    <br/>
     </>
-:
-    <p>No hay informacion de figuritas</p>
   )
 
 };
 
-const adaptModelToFigurita = (figurita) =>
-new ModeloFigurita(
+
+
+const adaptModelToFigurita = (figurita) => new ModeloFigurita(
   figurita.id,
   figurita.nombre,
   figurita.pais,
