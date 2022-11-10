@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { httpEditFigurita } from "../services/httpConsumer";
 
 function addLeadingZeros(num, totalLength) {
@@ -6,6 +7,9 @@ function addLeadingZeros(num, totalLength) {
 }
 
 const Figurita = ({ props }) => {
+
+const [tengo, setTengo] = useState()
+
   return (
     <>
       <div className="contenedorFigurita" key={props.id}>
@@ -28,7 +32,7 @@ const Figurita = ({ props }) => {
           </>
           )     }
           <div className="cantidadJugador">{props.tengo}</div>
-          <button class="button" onClick={() => sumar(props)}>
+          <button class="button" onClick={() => {sumar(props); mostrar(props)}}>
             +
             <div class="button__horizontal"></div>
             <div class="button__vertical"></div>
@@ -42,12 +46,14 @@ const Figurita = ({ props }) => {
   );
 };
 
-
+const mostrar = (props) => {
+  console.log(props)
+}
 
 const sumar = (props) => {
   props.tengo = parseInt(props.tengo)+1
   httpEditFigurita(props.id,props)
-  window.location.reload()
+  //window.location.reload()
 }
 
 const restar = (props) => {
