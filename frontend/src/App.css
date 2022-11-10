@@ -1,38 +1,20 @@
 .App {
   text-align: center;
+  background-image: radial-gradient(circle at 36.75% 40.72%, #ff5b84 0, #ff6171 3.57%, #ff685f 7.14%, #ff714e 10.71%, #ff7a3c 14.29%, #ff832a 17.86%, #fb8c13 21.43%, #ed9400 25%, #de9c00 28.57%, #cea300 32.14%, #bda900 35.71%, #abaf00 39.29%, #98b400 42.86%, #83b800 46.43%, #6bbc20 50%, #4ebf36 53.57%, #1ac24a 57.14%, #00c45d 60.71%, #00c671 64.29%, #00c785 67.86%, #00c899 71.43%, #00c9ad 75%, #00c9c1 78.57%, #00c9d5 82.14%, #00c9e7 85.71%, #00c8f9 89.29%, #00c7ff 92.86%, #00c5ff 96.43%, #00c2ff 100%);
+
+}
+h1{
+  font-size: 10vh;
+  font-family: cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.contenedorPais{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100vw;
+  height: max-content;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contenedorFigurita{
+  display: flex;
+    width: 30%;
+  
 }

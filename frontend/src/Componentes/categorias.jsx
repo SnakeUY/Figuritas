@@ -8,10 +8,11 @@ import { useState } from "react";
 const Componente = ({categorias}) => {
   return (
         <>
+        
         {categorias.map((pais)=> (
-          <ul> Pais {"->"} {pais.pais}
+          <div className="contenedorPais"> Pais {"->"} {pais.pais}
               <Pais pais={pais.pais}></Pais>
-          </ul>
+          </div>
         ))}
         </>
    );
@@ -28,15 +29,10 @@ const Pais = ({pais}) => {
   
   return(
     <>
-    <li>
-      <p> Cantidad de jugadores {figurita.length}</p>
       {figurita.map((figurita)=>(
       <Figurita props={figurita}/>
       ))
        }
-    </li>
-    <br/>
-    <br/>
     </>
   )
 
