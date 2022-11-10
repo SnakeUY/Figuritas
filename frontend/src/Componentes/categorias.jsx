@@ -10,9 +10,11 @@ const Componente = ({categorias}) => {
         <>
         
         {categorias.map((pais)=> (
-          <div className="contenedorPais"> Pais {"->"} {pais.pais}
-              <Pais pais={pais.pais}></Pais>
+          <><h2>{pais.pais}</h2>
+          <div className="contenedorPais">
+              <div className="flex"><Pais pais={pais.pais}></Pais></div>
           </div>
+          </>
         ))}
         </>
    );
