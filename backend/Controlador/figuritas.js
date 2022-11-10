@@ -68,15 +68,8 @@ router.put("/:id", async (req, res, next) => {
       where: { id: id },
     }
   );
-  const mensaje = "";
-  if (body.tengo <= 0) {
-    mensaje = "No tenes esta figurita";
-  } else if (body.tengo == 1) {
-    mensaje = "de esta figurita, tenes 1";
-  } else {
-    mensaje = "figurita repetida no llena el album";
-  }
-  res.send({ message: mensaje });
+
+  res.send({message:"Correcto"});
   next();
 });
 
