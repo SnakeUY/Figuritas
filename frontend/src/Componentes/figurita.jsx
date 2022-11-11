@@ -8,7 +8,8 @@ function addLeadingZeros(num, totalLength) {
 }
 
 const Figurita = ({ props }) => {
- const [tengo, setTengo] = useState(parseInt(props.tengo))
+  const [tengo,SetTengo] = useState(parseInt(props.tengo))
+
    return (
     <>
       <div className="contenedorFigurita" key={props.id}>
@@ -23,7 +24,7 @@ const Figurita = ({ props }) => {
           </>
 : (
           <>
-          <button class="button" onClick={() => restar(props,setTengo)}>
+          <button class="button" onClick={() => {restar(props); SetTengo(tengo-1)}}>
             -
             <div class="button__horizontal"></div>
             <div class="button__vertical"></div>
@@ -31,30 +32,26 @@ const Figurita = ({ props }) => {
           </>
           )     }
           <div className="cantidadJugador">{tengo}</div>
-          <button class="button" onClick={() => {sumar(props,setTengo(),tengo)}}>
+          <button class="button" onClick={() => {sumar(props); SetTengo(tengo+1)}}>
             +
             <div class="button__horizontal"></div>
             <div class="button__vertical"></div>
           </button>
           
         </div>
-
-
       </div>
     </>
   );
 };
 
-const sumar = (props,setTengo,tengo) => {
+const sumar = (props) => {
   props.tengo = parseInt(props.tengo)+1
   httpEditFigurita(props.id,props)
-  setTengo(tengo+1)  
 }
 
-const restar = ({props,setTengo}) => {
+const restar = (props) => {
   props.tengo = parseInt(props.tengo)-1
   httpEditFigurita(props.id,props)
-  setTengo(props.tengo-1)
 }
 
 
