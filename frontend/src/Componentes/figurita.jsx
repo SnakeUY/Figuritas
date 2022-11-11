@@ -1,16 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import { httpEditFigurita } from "../services/httpConsumer";
+import { getFiguritasById } from '../services/httpConsumer'
 
 function addLeadingZeros(num, totalLength) {
   return String(num).padStart(totalLength, "0");
 }
 
 const Figurita = ({ props }) => {
-
-const [tengo, setTengo] = useState()
-
-  return (
+ const [tengo, setTengo] = useState(parseInt(props.tengo))
+   return (
     <>
       <div className="contenedorFigurita" key={props.id}>
         <span className="idJugador">#{addLeadingZeros(props.id, 3)}</span>
@@ -24,15 +23,15 @@ const [tengo, setTengo] = useState()
           </>
 : (
           <>
-          <button class="button" onClick={() => restar(props)}>
+          <button class="button" onClick={() => restar(props,setTengo)}>
             -
             <div class="button__horizontal"></div>
             <div class="button__vertical"></div>
           </button>
           </>
           )     }
-          <div className="cantidadJugador">{props.tengo}</div>
-          <button class="button" onClick={() => {sumar(props); mostrar(props)}}>
+          <div className="cantidadJugador">{tengo}</div>
+          <button class="button" onClick={() => {sumar(props,setTengo(),tengo)}}>
             +
             <div class="button__horizontal"></div>
             <div class="button__vertical"></div>
@@ -46,20 +45,16 @@ const [tengo, setTengo] = useState()
   );
 };
 
-const mostrar = (props) => {
-  console.log(props)
-}
-
-const sumar = (props) => {
+const sumar = (props,setTengo,tengo) => {
   props.tengo = parseInt(props.tengo)+1
   httpEditFigurita(props.id,props)
-  //window.location.reload()
+  setTengo(tengo+1)  
 }
 
-const restar = (props) => {
+const restar = ({props,setTengo}) => {
   props.tengo = parseInt(props.tengo)-1
   httpEditFigurita(props.id,props)
-  window.location.reload()
+  setTengo(props.tengo-1)
 }
 
 
